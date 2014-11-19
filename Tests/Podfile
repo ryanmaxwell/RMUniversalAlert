@@ -1,0 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios
+
+pod 'UIAlertView+Blocks'
+pod 'UIActionSheet+Blocks'
+pod 'UIAlertController+Blocks'

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tif-3t-8Zr">
+                                <rect key="frame" x="252" y="68" width="95" height="30"/>
+                                <state key="normal" title="Single Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="singleCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qyy-Pw-qhI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPm-uG-ofv">
+                                <rect key="frame" x="257" y="151" width="85" height="30"/>
+                                <state key="normal" title="Single Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="singleOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHG-VG-7f5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH3-vo-wuv">
+                                <rect key="frame" x="237" y="111" width="125" height="30"/>
+                                <state key="normal" title="Single Destructive">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="singleDestructive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="edT-WR-Ntf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr9-3X-zk3">
+                                <rect key="frame" x="220" y="229" width="160" height="30"/>
+                                <state key="normal" title="Cancel and Destructive">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAndDestructive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MVe-Qj-6mg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eQ-7H-JUv">
+                                <rect key="frame" x="252" y="189" width="97" height="30"/>
+                                <state key="normal" title="Multiple Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="multipleOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oyp-MJ-xeS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzq-gO-Hru">
+                                <rect key="frame" x="211" y="309" width="179" height="30"/>
+                                <state key="normal" title="Cancel and Multiple Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAndMultipleOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1BX-lK-1id"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-lm-XfQ">
+                                <rect key="frame" x="239" y="269" width="121" height="30"/>
+                                <state key="normal" title="Cancel and Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAndOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="txB-9U-7cT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utY-CB-aPm">
+                                <rect key="frame" x="225" y="349" width="151" height="30"/>
+                                <state key="normal" title="Destructive and Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="destructiveAndOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aUo-T2-hl4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ks2-a4-b0B">
+                                <rect key="frame" x="196" y="389" width="209" height="30"/>
+                                <state key="normal" title="Destructive and Multiple Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="destructiveAndMultipleOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dKz-85-Fn1"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gOS-h6-yua">
+                                <rect key="frame" x="209" y="30" width="183" height="29"/>
+                                <segments>
+                                    <segment title="Alert View"/>
+                                    <segment title="Action Sheet"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeType:" destination="BYZ-38-t0r" eventType="valueChanged" id="cbf-w4-GgF"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-Qv-1pJ">
+                                <rect key="frame" x="165" y="469" width="270" height="30"/>
+                                <state key="normal" title="Destructive, Cancel, and Multiple Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="destructiveCancelAndMultipleOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G8k-bb-WJc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgy-0Z-kqE">
+                                <rect key="frame" x="194" y="429" width="211" height="30"/>
+                                <state key="normal" title="Destructive, Cancel, and Other">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="destructiveCancelAndOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZm-xl-Gpj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yau-lm-XfQ" firstAttribute="top" secondItem="mr9-3X-zk3" secondAttribute="bottom" constant="10" id="1d0-qI-F19"/>
+                            <constraint firstAttribute="centerX" secondItem="XPm-uG-ofv" secondAttribute="centerX" id="3kH-Ru-fml"/>
+                            <constraint firstItem="lgy-0Z-kqE" firstAttribute="top" secondItem="Ks2-a4-b0B" secondAttribute="bottom" constant="10" id="4uV-3X-u0O"/>
+                            <constraint firstItem="4eQ-7H-JUv" firstAttribute="top" secondItem="XPm-uG-ofv" secondAttribute="bottom" constant="8" id="6w6-dt-ekQ"/>
+                            <constraint firstAttribute="centerX" secondItem="Ks2-a4-b0B" secondAttribute="centerX" id="C7w-P3-Zck"/>
+                            <constraint firstItem="MH3-vo-wuv" firstAttribute="top" secondItem="tif-3t-8Zr" secondAttribute="bottom" constant="13" id="CDT-jm-Y8O"/>
+                            <constraint firstAttribute="centerX" secondItem="utY-CB-aPm" secondAttribute="centerX" id="GfL-Du-7VI"/>
+                            <constraint firstItem="XPm-uG-ofv" firstAttribute="top" secondItem="MH3-vo-wuv" secondAttribute="bottom" constant="10" id="JF6-YC-HMX"/>
+                            <constraint firstAttribute="centerX" secondItem="gOS-h6-yua" secondAttribute="centerX" id="JPt-to-l5n"/>
+                            <constraint firstItem="tif-3t-8Zr" firstAttribute="top" secondItem="gOS-h6-yua" secondAttribute="bottom" constant="10" id="KgN-gg-UmR"/>
+                            <constraint firstAttribute="centerX" secondItem="Yau-lm-XfQ" secondAttribute="centerX" id="LqS-sJ-ZJO"/>
+                            <constraint firstAttribute="centerX" secondItem="Mzq-gO-Hru" secondAttribute="centerX" id="PiN-hp-kZY"/>
+                            <constraint firstItem="utY-CB-aPm" firstAttribute="top" secondItem="Mzq-gO-Hru" secondAttribute="bottom" constant="10" id="Uow-vJ-pgN"/>
+                            <constraint firstItem="hfR-Qv-1pJ" firstAttribute="top" secondItem="lgy-0Z-kqE" secondAttribute="bottom" constant="10" id="UxH-v3-plg"/>
+                            <constraint firstAttribute="centerX" secondItem="4eQ-7H-JUv" secondAttribute="centerX" id="Zi9-Nf-qsI"/>
+                            <constraint firstAttribute="centerX" secondItem="lgy-0Z-kqE" secondAttribute="centerX" id="d84-Ny-FLo"/>
+                            <constraint firstAttribute="centerX" secondItem="MH3-vo-wuv" secondAttribute="centerX" id="e7S-ge-0dL"/>
+                            <constraint firstItem="gOS-h6-yua" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="eFU-Va-vo7"/>
+                            <constraint firstItem="Mzq-gO-Hru" firstAttribute="top" secondItem="Yau-lm-XfQ" secondAttribute="bottom" constant="10" id="fnW-T2-AhC"/>
+                            <constraint firstItem="Ks2-a4-b0B" firstAttribute="top" secondItem="utY-CB-aPm" secondAttribute="bottom" constant="10" id="fsc-nB-5XD"/>
+                            <constraint firstAttribute="centerX" secondItem="tif-3t-8Zr" secondAttribute="centerX" id="gaT-g5-gtA"/>
+                            <constraint firstAttribute="centerX" secondItem="mr9-3X-zk3" secondAttribute="centerX" id="mBk-bw-A8X"/>
+                            <constraint firstItem="mr9-3X-zk3" firstAttribute="top" secondItem="4eQ-7H-JUv" secondAttribute="bottom" constant="10" id="tSm-oG-P8a"/>
+                            <constraint firstAttribute="centerX" secondItem="hfR-Qv-1pJ" secondAttribute="centerX" id="upW-IU-2qh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="gOS-h6-yua" id="tIW-IF-DNN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="430" y="459"/>
+        </scene>
+    </scenes>
+</document>
