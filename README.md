@@ -31,3 +31,7 @@ On iOS 8 and above, it will use UIAlertController - giving you red text on the d
 ## Usage 
 
 `pod 'RMUniversalAlert'` using CocoaPods.
+
+## Examples
+
+Download this project, navigate to `Tests` and run `pod install`. Open `RMUniversalAlert.xcworkspace`. 
