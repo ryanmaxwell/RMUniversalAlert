@@ -1,7 +1,7 @@
 RMUniversalAlert
 ================
 
-Wrapper class for UIAlertController / UIAlertView / UIAlertController for targeting all iOS versions.
+Wrapper class for UIAlertView / UIActionSheet / UIAlertController for targeting all iOS versions.
 
 RMUniversalAlert is a wrapper class that builds upon [UIAlertView+Blocks](https://github.com/ryanmaxwell/UIAlertView-Blocks), [UIActionSheet+Blocks](https://github.com/ryanmaxwell/UIActionSheet-Blocks), and [UIAlertController+Blocks](https://github.com/ryanmaxwell/UIAlertController-Blocks), and gives a simplified interface to support all iOS versions.
 
