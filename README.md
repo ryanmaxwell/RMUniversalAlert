@@ -8,24 +8,46 @@ RMUniversalAlert is a wrapper class that builds upon [UIAlertView+Blocks](https:
 e.g. The below code will show an alert on all iOS versions, and allow you to perform your logic in a single inline code path. 
 On iOS 8 and above, it will use UIAlertController - giving you red text on the destructive button. On iOS 7 and earlier, it will use a standard UIAlertView.
 
+### Objective-C
+
 ```objc
 [RMUniversalAlert showAlertInViewController:self
-                                  withTitle:@"Title"
-                                    message:@"Message"
+                                  withTitle:@"Test Alert"
+                                    message:@"Test Message"
                           cancelButtonTitle:@"Cancel"
                      destructiveButtonTitle:@"Delete"
-                          otherButtonTitles:@[@"Other 1", @"Other 2"]
+                          otherButtonTitles:@[@"First Other", @"Second Other"]
                                    tapBlock:^(NSInteger buttonIndex){
-                                       if (buttonIndex == UIAlertControllerBlocksDestructiveButtonIndex) {
-                                           /* Delete */
-                                       } else if (buttonIndex == UIAlertControllerBlocksCancelButtonIndex) {
-                                           /* Cancel */
-                                       } else if (buttonIndex == UIAlertControllerBlocksFirstOtherButtonIndex) {
-                                           /* Other 1 */
-                                       } else {
-                                           /* Other 2 */
+                                       
+                                       if (buttonIndex == UIAlertControllerBlocksCancelButtonIndex) {
+                                           NSLog(@"Cancel Tapped");
+                                       } else if (buttonIndex == UIAlertControllerBlocksDestructiveButtonIndex) {
+                                           NSLog(@"Delete Tapped");
+                                       } else if (buttonIndex >= UIAlertControllerBlocksFirstOtherButtonIndex) {
+                                           NSLog(@"Other Button Index %ld", (long)buttonIndex - UIAlertControllerBlocksFirstOtherButtonIndex);
                                        }
                                    };
+```
+
+### Swift
+
+```swift
+RMUniversalAlert.showAlertInViewController(self,
+    withTitle: "Test Alert",
+    message: "Test Message",
+    cancelButtonTitle: "Cancel",
+    destructiveButtonTitle: "Delete",
+    otherButtonTitles: ["First Other", "Second Other"],
+    tapBlock: {(buttonIndex) in
+    
+        if (buttonIndex == UIAlertControllerBlocksCancelButtonIndex) {
+            println("Cancel Tapped")
+        } else if (buttonIndex == UIAlertControllerBlocksDestructiveButtonIndex) {
+            println("Delete Tapped")
+        } else if (buttonIndex >= UIAlertControllerBlocksFirstOtherButtonIndex) {
+            println("Other Button Index \(buttonIndex - UIAlertControllerBlocksFirstOtherButtonIndex)")
+        }
+    })
 ```
 
 ## Usage 
@@ -35,3 +57,5 @@ On iOS 8 and above, it will use UIAlertController - giving you red text on the d
 ## Examples
 
 Download this project, navigate to `Tests` and run `pod install`. Open `RMUniversalAlert.xcworkspace`. 
+
+
