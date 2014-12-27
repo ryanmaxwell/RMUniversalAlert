@@ -10,20 +10,20 @@
 
 @interface RMUniversalAlert : NSObject
 
-+ (void)showAlertInViewController:(UIViewController *)viewController
-                        withTitle:(NSString *)title
-                          message:(NSString *)message
-                cancelButtonTitle:(NSString *)cancelButtonTitle
-           destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                otherButtonTitles:(NSArray *)otherButtonTitles
-                         tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
++ (id)showAlertInViewController:(UIViewController *)viewController
+                      withTitle:(NSString *)title
+                        message:(NSString *)message
+              cancelButtonTitle:(NSString *)cancelButtonTitle
+         destructiveButtonTitle:(NSString *)destructiveButtonTitle
+              otherButtonTitles:(NSArray *)otherButtonTitles
+                       tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
 
-+ (void)showActionSheetInViewController:(UIViewController *)viewController
-                              withTitle:(NSString *)title
-                                message:(NSString *)message
-                      cancelButtonTitle:(NSString *)cancelButtonTitle
-                 destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                      otherButtonTitles:(NSArray *)otherButtonTitles
-                               tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
++ (id)showActionSheetInViewController:(UIViewController *)viewController
+                            withTitle:(NSString *)title
+                              message:(NSString *)message
+                    cancelButtonTitle:(NSString *)cancelButtonTitle
+               destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                    otherButtonTitles:(NSArray *)otherButtonTitles
+                             tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
 
 @end
