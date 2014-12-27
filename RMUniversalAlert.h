@@ -7,23 +7,31 @@
 //
 
 #import <UIAlertController+Blocks/UIAlertController+Blocks.h>
+@class RMUniversalAlert;
+
+typedef void(^RMUniversalAlertTapBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
 
 @interface RMUniversalAlert : NSObject
 
-+ (void)showAlertInViewController:(UIViewController *)viewController
-                        withTitle:(NSString *)title
-                          message:(NSString *)message
-                cancelButtonTitle:(NSString *)cancelButtonTitle
-           destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                otherButtonTitles:(NSArray *)otherButtonTitles
-                         tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
++ (instancetype)showAlertInViewController:(UIViewController *)viewController
+                                withTitle:(NSString *)title
+                                  message:(NSString *)message
+                        cancelButtonTitle:(NSString *)cancelButtonTitle
+                   destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                        otherButtonTitles:(NSArray *)otherButtonTitles
+                                 tapBlock:(RMUniversalAlertTapBlock)tapBlock;
 
-+ (void)showActionSheetInViewController:(UIViewController *)viewController
-                              withTitle:(NSString *)title
-                                message:(NSString *)message
-                      cancelButtonTitle:(NSString *)cancelButtonTitle
-                 destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                      otherButtonTitles:(NSArray *)otherButtonTitles
-                               tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
++ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
+                                      withTitle:(NSString *)title
+                                        message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                         destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                              otherButtonTitles:(NSArray *)otherButtonTitles
+                                       tapBlock:(RMUniversalAlertTapBlock)tapBlock;
+
+- (BOOL)visible;
+- (NSInteger)cancelButtonIndex;
+- (NSInteger)firstOtherButtonIndex;
+- (NSInteger)destructiveButtonIndex;
 
 @end
