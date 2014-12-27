@@ -13,25 +13,25 @@
 
 @implementation RMUniversalAlert
 
-+ (void)showAlertInViewController:(UIViewController *)viewController
-                        withTitle:(NSString *)title
-                          message:(NSString *)message
-                cancelButtonTitle:(NSString *)cancelButtonTitle
-           destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                otherButtonTitles:(NSArray *)otherButtonTitles
-                         tapBlock:(void (^)(NSInteger buttonIndex))tapBlock
++ (id)showAlertInViewController:(UIViewController *)viewController
+                      withTitle:(NSString *)title
+                        message:(NSString *)message
+              cancelButtonTitle:(NSString *)cancelButtonTitle
+         destructiveButtonTitle:(NSString *)destructiveButtonTitle
+              otherButtonTitles:(NSArray *)otherButtonTitles
+                       tapBlock:(void (^)(NSInteger buttonIndex))tapBlock
 {
     if ([UIAlertController class]) {
-        [UIAlertController showAlertInViewController:viewController
-                                          withTitle:title message:message
-                                  cancelButtonTitle:cancelButtonTitle
-                             destructiveButtonTitle:destructiveButtonTitle
-                                  otherButtonTitles:otherButtonTitles
-                                           tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
-                                               if (tapBlock) {
-                                                   tapBlock(buttonIndex);
-                                               }
-                                           }];
+        return [UIAlertController showAlertInViewController:viewController
+                                                  withTitle:title message:message
+                                          cancelButtonTitle:cancelButtonTitle
+                                     destructiveButtonTitle:destructiveButtonTitle
+                                          otherButtonTitles:otherButtonTitles
+                                                   tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
+                                                       if (tapBlock) {
+                                                           tapBlock(buttonIndex);
+                                                       }
+                                                   }];
     } else {
         NSMutableArray *other = [NSMutableArray array];
         
@@ -43,68 +43,68 @@
             [other addObjectsFromArray:otherButtonTitles];
         }
         
-        [UIAlertView showWithTitle:title
-                           message:message
-                 cancelButtonTitle:cancelButtonTitle
-                 otherButtonTitles:other
-                          tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
-                              if (tapBlock) {
-                                  if (buttonIndex == alertView.cancelButtonIndex) {
-                                      tapBlock(UIAlertControllerBlocksCancelButtonIndex);
-                                  } else if (destructiveButtonTitle) {
-                                      if (buttonIndex == alertView.firstOtherButtonIndex) {
-                                          tapBlock(UIAlertControllerBlocksDestructiveButtonIndex);
-                                      } else if (otherButtonTitles.count) {
-                                          NSInteger otherOffset = buttonIndex - alertView.firstOtherButtonIndex;
-                                          tapBlock(UIAlertControllerBlocksFirstOtherButtonIndex + otherOffset - 1);
-                                      }
-                                  } else if (otherButtonTitles.count) {
-                                      NSInteger otherOffset = buttonIndex - alertView.firstOtherButtonIndex;
-                                      tapBlock(UIAlertControllerBlocksFirstOtherButtonIndex + otherOffset);
-                                  }
-                              }
-                          }];
+        return [UIAlertView showWithTitle:title
+                                  message:message
+                        cancelButtonTitle:cancelButtonTitle
+                        otherButtonTitles:other
+                                 tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
+                                     if (tapBlock) {
+                                         if (buttonIndex == alertView.cancelButtonIndex) {
+                                             tapBlock(UIAlertControllerBlocksCancelButtonIndex);
+                                         } else if (destructiveButtonTitle) {
+                                             if (buttonIndex == alertView.firstOtherButtonIndex) {
+                                                 tapBlock(UIAlertControllerBlocksDestructiveButtonIndex);
+                                             } else if (otherButtonTitles.count) {
+                                                 NSInteger otherOffset = buttonIndex - alertView.firstOtherButtonIndex;
+                                                 tapBlock(UIAlertControllerBlocksFirstOtherButtonIndex + otherOffset - 1);
+                                             }
+                                         } else if (otherButtonTitles.count) {
+                                             NSInteger otherOffset = buttonIndex - alertView.firstOtherButtonIndex;
+                                             tapBlock(UIAlertControllerBlocksFirstOtherButtonIndex + otherOffset);
+                                         }
+                                     }
+                                 }];
     }
 }
 
-+ (void)showActionSheetInViewController:(UIViewController *)viewController
-                              withTitle:(NSString *)title
-                                message:(NSString *)message
-                      cancelButtonTitle:(NSString *)cancelButtonTitle
-                 destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                      otherButtonTitles:(NSArray *)otherButtonTitles
-                               tapBlock:(void (^)(NSInteger buttonIndex))tapBlock
++ (id)showActionSheetInViewController:(UIViewController *)viewController
+                            withTitle:(NSString *)title
+                              message:(NSString *)message
+                    cancelButtonTitle:(NSString *)cancelButtonTitle
+               destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                    otherButtonTitles:(NSArray *)otherButtonTitles
+                             tapBlock:(void (^)(NSInteger buttonIndex))tapBlock
 {
     if ([UIAlertController class]) {
-        [UIAlertController showActionSheetInViewController:viewController
-                                                 withTitle:title
-                                                   message:message
-                                         cancelButtonTitle:cancelButtonTitle
-                                    destructiveButtonTitle:destructiveButtonTitle
-                                         otherButtonTitles:otherButtonTitles
-                                                  tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
-                                                      if (tapBlock) {
-                                                          tapBlock(buttonIndex);
-                                                      }
-                                                  }];
+        return [UIAlertController showActionSheetInViewController:viewController
+                                                        withTitle:title
+                                                          message:message
+                                                cancelButtonTitle:cancelButtonTitle
+                                           destructiveButtonTitle:destructiveButtonTitle
+                                                otherButtonTitles:otherButtonTitles
+                                                         tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
+                                                             if (tapBlock) {
+                                                                 tapBlock(buttonIndex);
+                                                             }
+                                                         }];
     } else {
-        [UIActionSheet showInView:viewController.view
-                        withTitle:title
-                cancelButtonTitle:cancelButtonTitle
-           destructiveButtonTitle:destructiveButtonTitle
-                otherButtonTitles:otherButtonTitles
-                         tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex){
-                             if (tapBlock) {
-                                 if (buttonIndex == actionSheet.cancelButtonIndex) {
-                                     tapBlock(UIAlertControllerBlocksCancelButtonIndex);
-                                 } else if (buttonIndex == actionSheet.destructiveButtonIndex) {
-                                     tapBlock(UIAlertControllerBlocksDestructiveButtonIndex);
-                                 } else if (otherButtonTitles.count) {
-                                     NSInteger otherOffset = buttonIndex - actionSheet.firstOtherButtonIndex;
-                                     tapBlock(UIAlertControllerBlocksFirstOtherButtonIndex + otherOffset);
-                                 }
-                             }
-                         }];
+        return [UIActionSheet showInView:viewController.view
+                               withTitle:title
+                       cancelButtonTitle:cancelButtonTitle
+                  destructiveButtonTitle:destructiveButtonTitle
+                       otherButtonTitles:otherButtonTitles
+                                tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+                                    if (tapBlock) {
+                                        if (buttonIndex == actionSheet.cancelButtonIndex) {
+                                            tapBlock(UIAlertControllerBlocksCancelButtonIndex);
+                                        } else if (buttonIndex == actionSheet.destructiveButtonIndex) {
+                                            tapBlock(UIAlertControllerBlocksDestructiveButtonIndex);
+                                        } else if (otherButtonTitles.count) {
+                                            NSInteger otherOffset = buttonIndex - actionSheet.firstOtherButtonIndex;
+                                            tapBlock(UIAlertControllerBlocksFirstOtherButtonIndex + otherOffset);
+                                        }
+                                    }
+                                }];
     }
 }
 
