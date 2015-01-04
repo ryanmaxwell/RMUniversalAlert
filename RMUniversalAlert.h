@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Ryan Maxwell. All rights reserved.
 //
 
-#import <UIAlertController+Blocks/UIAlertController+Blocks.h>
 @class RMUniversalAlert;
 
 typedef void(^RMUniversalAlertTapBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
