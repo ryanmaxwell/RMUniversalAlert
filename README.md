@@ -11,20 +11,20 @@ RMUniversalAlert is a wrapper class that builds upon [UIAlertView+Blocks](https:
 typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
 
 + (instancetype)showAlertInViewController:(UIViewController *)viewController
-                        withTitle:(NSString *)title
-                          message:(NSString *)message
-                cancelButtonTitle:(NSString *)cancelButtonTitle
-           destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                otherButtonTitles:(NSArray *)otherButtonTitles
-                         tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
+                                withTitle:(NSString *)title
+                                  message:(NSString *)message
+                        cancelButtonTitle:(NSString *)cancelButtonTitle
+                   destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                        otherButtonTitles:(NSArray *)otherButtonTitles
+                                 tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
-                              withTitle:(NSString *)title
-                                message:(NSString *)message
-                      cancelButtonTitle:(NSString *)cancelButtonTitle
-                 destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                      otherButtonTitles:(NSArray *)otherButtonTitles
-                               tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
+                                      withTitle:(NSString *)title
+                                        message:(NSString *)message
+                              cancelButtonTitle:(NSString *)cancelButtonTitle
+                         destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                              otherButtonTitles:(NSArray *)otherButtonTitles
+                                       tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 ```
 
 ## Usage 
@@ -69,7 +69,7 @@ RMUniversalAlert.showAlertInViewController(self,
         } else if (buttonIndex == alert.destructiveButtonIndex) {
             println("Delete Tapped")
         } else if (buttonIndex >= alert.firstOtherButtonIndex) {
-            println("Other Button Index \(buttonIndex - UIAlertControllerBlocksFirstOtherButtonIndex)")
+            println("Other Button Index \(buttonIndex - alert.firstOtherButtonIndex)")
         }
     })
 ```
