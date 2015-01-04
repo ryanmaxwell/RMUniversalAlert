@@ -8,21 +8,23 @@ RMUniversalAlert is a wrapper class that builds upon [UIAlertView+Blocks](https:
 ## Interface
 
 ```objc
-+ (void)showAlertInViewController:(UIViewController *)viewController
+typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
+
++ (instancetype)showAlertInViewController:(UIViewController *)viewController
                         withTitle:(NSString *)title
                           message:(NSString *)message
                 cancelButtonTitle:(NSString *)cancelButtonTitle
            destructiveButtonTitle:(NSString *)destructiveButtonTitle
                 otherButtonTitles:(NSArray *)otherButtonTitles
-                         tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
+                         tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
-+ (void)showActionSheetInViewController:(UIViewController *)viewController
++ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
                               withTitle:(NSString *)title
                                 message:(NSString *)message
                       cancelButtonTitle:(NSString *)cancelButtonTitle
                  destructiveButtonTitle:(NSString *)destructiveButtonTitle
                       otherButtonTitles:(NSArray *)otherButtonTitles
-                               tapBlock:(void (^)(NSInteger buttonIndex))tapBlock;
+                               tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 ```
 
 ## Usage 
@@ -39,14 +41,14 @@ On iOS 8 and above, it will use UIAlertController - giving you red text on the d
                           cancelButtonTitle:@"Cancel"
                      destructiveButtonTitle:@"Delete"
                           otherButtonTitles:@[@"First Other", @"Second Other"]
-                                   tapBlock:^(NSInteger buttonIndex){
+                                   tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
                                        
-                                       if (buttonIndex == UIAlertControllerBlocksCancelButtonIndex) {
+                                       if (buttonIndex == alert.cancelButtonIndex) {
                                            NSLog(@"Cancel Tapped");
-                                       } else if (buttonIndex == UIAlertControllerBlocksDestructiveButtonIndex) {
+                                       } else if (buttonIndex == alert.destructiveButtonIndex) {
                                            NSLog(@"Delete Tapped");
-                                       } else if (buttonIndex >= UIAlertControllerBlocksFirstOtherButtonIndex) {
-                                           NSLog(@"Other Button Index %ld", (long)buttonIndex - UIAlertControllerBlocksFirstOtherButtonIndex);
+                                       } else if (buttonIndex >= alert.firstOtherButtonIndex) {
+                                           NSLog(@"Other Button Index %ld", (long)buttonIndex - alert.firstOtherButtonIndex);
                                        }
                                    };
 ```
@@ -60,13 +62,13 @@ RMUniversalAlert.showAlertInViewController(self,
     cancelButtonTitle: "Cancel",
     destructiveButtonTitle: "Delete",
     otherButtonTitles: ["First Other", "Second Other"],
-    tapBlock: {(buttonIndex) in
+    tapBlock: {(alert, buttonIndex) in
     
-        if (buttonIndex == UIAlertControllerBlocksCancelButtonIndex) {
+        if (buttonIndex == alert.cancelButtonIndex) {
             println("Cancel Tapped")
-        } else if (buttonIndex == UIAlertControllerBlocksDestructiveButtonIndex) {
+        } else if (buttonIndex == alert.destructiveButtonIndex) {
             println("Delete Tapped")
-        } else if (buttonIndex >= UIAlertControllerBlocksFirstOtherButtonIndex) {
+        } else if (buttonIndex >= alert.firstOtherButtonIndex) {
             println("Other Button Index \(buttonIndex - UIAlertControllerBlocksFirstOtherButtonIndex)")
         }
     })
