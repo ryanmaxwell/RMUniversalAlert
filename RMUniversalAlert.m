@@ -28,7 +28,7 @@
                         cancelButtonTitle:(NSString *)cancelButtonTitle
                    destructiveButtonTitle:(NSString *)destructiveButtonTitle
                         otherButtonTitles:(NSArray *)otherButtonTitles
-                                 tapBlock:(RMUniversalAlertTapBlock)tapBlock
+                                 tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     
@@ -86,7 +86,7 @@
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-                                       tapBlock:(RMUniversalAlertTapBlock)tapBlock
+                                       tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     

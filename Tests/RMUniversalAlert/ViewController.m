@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 @property (assign, nonatomic) PresentationMode mode;
 
-@property (strong, nonatomic) RMUniversalAlertTapBlock tapBlock;
+@property (strong, nonatomic) RMUniversalAlertCompletionBlock tapBlock;
 
 @property (strong, nonatomic) RMUniversalAlert *universalAlert;
 

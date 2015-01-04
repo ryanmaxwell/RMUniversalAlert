@@ -8,7 +8,7 @@
 
 @class RMUniversalAlert;
 
-typedef void(^RMUniversalAlertTapBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
+typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
 
 @interface RMUniversalAlert : NSObject
 
@@ -18,7 +18,7 @@ typedef void(^RMUniversalAlertTapBlock)(RMUniversalAlert *alert, NSInteger butto
                         cancelButtonTitle:(NSString *)cancelButtonTitle
                    destructiveButtonTitle:(NSString *)destructiveButtonTitle
                         otherButtonTitles:(NSArray *)otherButtonTitles
-                                 tapBlock:(RMUniversalAlertTapBlock)tapBlock;
+                                 tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
                                       withTitle:(NSString *)title
@@ -26,7 +26,7 @@ typedef void(^RMUniversalAlertTapBlock)(RMUniversalAlert *alert, NSInteger butto
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-                                       tapBlock:(RMUniversalAlertTapBlock)tapBlock;
+                                       tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
 @property (readonly, nonatomic) BOOL visible;
 @property (readonly, nonatomic) NSInteger cancelButtonIndex;
