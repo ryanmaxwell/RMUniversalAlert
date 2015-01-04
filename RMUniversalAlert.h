@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Ryan Maxwell. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 @class RMUniversalAlert;
 
 typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
