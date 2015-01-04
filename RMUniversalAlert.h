@@ -28,9 +28,9 @@ typedef void(^RMUniversalAlertTapBlock)(RMUniversalAlert *alert, NSInteger butto
                               otherButtonTitles:(NSArray *)otherButtonTitles
                                        tapBlock:(RMUniversalAlertTapBlock)tapBlock;
 
-- (BOOL)visible;
-- (NSInteger)cancelButtonIndex;
-- (NSInteger)firstOtherButtonIndex;
-- (NSInteger)destructiveButtonIndex;
+@property (readonly, nonatomic) BOOL visible;
+@property (readonly, nonatomic) NSInteger cancelButtonIndex;
+@property (readonly, nonatomic) NSInteger firstOtherButtonIndex;
+@property (readonly, nonatomic) NSInteger destructiveButtonIndex;
 
 @end
