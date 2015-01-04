@@ -160,15 +160,7 @@ static NSInteger const NoButtonExistsIndex = -1;
         return NoButtonExistsIndex;
     }
     
-    if (self.alertController) {
-        return self.alertController.cancelButtonIndex;
-    } else if (self.alertView) {
-        return self.alertView.cancelButtonIndex;
-    } else if (self.actionSheet) {
-        return self.actionSheet.cancelButtonIndex;
-    }
-    
-    return NoButtonExistsIndex;
+    return UIAlertControllerBlocksCancelButtonIndex;
 }
 
 - (NSInteger)firstOtherButtonIndex
@@ -177,15 +169,7 @@ static NSInteger const NoButtonExistsIndex = -1;
         return NoButtonExistsIndex;
     }
     
-    if (self.alertController) {
-        return self.alertController.firstOtherButtonIndex;
-    } else if (self.alertView) {
-        return self.alertView.firstOtherButtonIndex;
-    } else if (self.actionSheet) {
-        return self.actionSheet.firstOtherButtonIndex;
-    }
-    
-    return NoButtonExistsIndex;
+    return UIAlertControllerBlocksFirstOtherButtonIndex;
 }
 
 - (NSInteger)destructiveButtonIndex
@@ -194,15 +178,7 @@ static NSInteger const NoButtonExistsIndex = -1;
         return NoButtonExistsIndex;
     }
     
-    if (self.alertController) {
-        return self.alertController.destructiveButtonIndex;
-    } else if (self.alertView) {
-        return self.alertView.firstOtherButtonIndex;
-    } else if (self.actionSheet) {
-        return self.actionSheet.firstOtherButtonIndex;
-    }
-    
-    return NoButtonExistsIndex;
+    return UIAlertControllerBlocksDestructiveButtonIndex;
 }
 
 @end
