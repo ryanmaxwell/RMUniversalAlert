@@ -12,11 +12,17 @@
 
 #import "RMUniversalAlert.h"
 
+static NSInteger const NoButtonExistsIndex = -1;
+
 @interface RMUniversalAlert ()
 
 @property (nonatomic) UIAlertController *alertController;
 @property (nonatomic) UIAlertView *alertView;
 @property (nonatomic) UIActionSheet *actionSheet;
+
+@property (nonatomic, assign) BOOL hasCancelButton;
+@property (nonatomic, assign) BOOL hasDestructiveButton;
+@property (nonatomic, assign) BOOL hasOtherButtons;
 
 @end
 
@@ -31,6 +37,10 @@
                                  tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
+    
+    alert.hasCancelButton = cancelButtonTitle != nil;
+    alert.hasDestructiveButton = destructiveButtonTitle != nil;
+    alert.hasOtherButtons = otherButtonTitles.count > 0;
     
     if ([UIAlertController class]) {
         alert.alertController = [UIAlertController showAlertInViewController:viewController
@@ -90,6 +100,10 @@
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     
+    alert.hasCancelButton = cancelButtonTitle != nil;
+    alert.hasDestructiveButton = destructiveButtonTitle != nil;
+    alert.hasOtherButtons = otherButtonTitles.count > 0;
+    
     if ([UIAlertController class]) {
         alert.alertController = [UIAlertController showActionSheetInViewController:viewController
                                                                          withTitle:title
@@ -130,7 +144,7 @@
 - (BOOL)visible
 {
     if (self.alertController) {
-        return self.alertController.view.superview ? YES : NO;
+        return self.alertController.visible;
     } else if (self.alertView) {
         return self.alertView.visible;
     } else if (self.actionSheet) {
@@ -142,17 +156,53 @@
 
 - (NSInteger)cancelButtonIndex
 {
-    return UIAlertControllerBlocksCancelButtonIndex;
+    if (!self.hasCancelButton) {
+        return NoButtonExistsIndex;
+    }
+    
+    if (self.alertController) {
+        return self.alertController.cancelButtonIndex;
+    } else if (self.alertView) {
+        return self.alertView.cancelButtonIndex;
+    } else if (self.actionSheet) {
+        return self.actionSheet.cancelButtonIndex;
+    }
+    
+    return NoButtonExistsIndex;
 }
 
 - (NSInteger)firstOtherButtonIndex
 {
-    return UIAlertControllerBlocksFirstOtherButtonIndex;
+    if (!self.hasOtherButtons) {
+        return NoButtonExistsIndex;
+    }
+    
+    if (self.alertController) {
+        return self.alertController.firstOtherButtonIndex;
+    } else if (self.alertView) {
+        return self.alertView.firstOtherButtonIndex;
+    } else if (self.actionSheet) {
+        return self.actionSheet.firstOtherButtonIndex;
+    }
+    
+    return NoButtonExistsIndex;
 }
 
 - (NSInteger)destructiveButtonIndex
 {
-    return UIAlertControllerBlocksDestructiveButtonIndex;
+    if (!self.hasDestructiveButton) {
+        return NoButtonExistsIndex;
+    }
+    
+    if (self.alertController) {
+        return self.alertController.destructiveButtonIndex;
+    } else if (self.alertView) {
+        return self.alertView.firstOtherButtonIndex;
+    } else if (self.actionSheet) {
+        return self.actionSheet.firstOtherButtonIndex;
+    }
+    
+    return NoButtonExistsIndex;
 }
 
 @end
