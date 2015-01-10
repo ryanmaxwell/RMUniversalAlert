@@ -100,6 +100,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
+             popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
@@ -115,6 +116,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                                                                  cancelButtonTitle:cancelButtonTitle
                                                             destructiveButtonTitle:destructiveButtonTitle
                                                                  otherButtonTitles:otherButtonTitles
+                                 popoverPresentationControllerBlock:popoverPresentationControllerBlock
                                                                           tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
                                                                               if (tapBlock) {
                                                                                   tapBlock(alert, buttonIndex);

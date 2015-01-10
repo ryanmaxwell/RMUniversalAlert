@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
   s.platform      = 'ios', '6.0'
   
   s.subspec 'Core' do |cs|
-    cs.dependency  'UIAlertView+Blocks'
-    cs.dependency  'UIActionSheet+Blocks'
-    cs.dependency  'UIAlertController+Blocks'
+    cs.dependency  'UIAlertView+Blocks', '>= 0.8'
+    cs.dependency  'UIActionSheet+Blocks', '>= 0.8'
+    cs.dependency  'UIAlertController+Blocks', '>= 0.8'
   end
 end

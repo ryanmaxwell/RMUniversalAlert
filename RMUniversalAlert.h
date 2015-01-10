@@ -28,6 +28,7 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSIntege
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
+             popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
 @property (readonly, nonatomic) BOOL visible;
