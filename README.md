@@ -9,9 +9,11 @@ RMUniversalAlert is a wrapper class that builds upon [UIAlertView+Blocks](https:
 
 ```objc
 typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
+```
 
 ### Alert Views
 
+```objc
 + (instancetype)showAlertInViewController:(UIViewController *)viewController
                                 withTitle:(NSString *)title
                                   message:(NSString *)message
@@ -19,9 +21,11 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSIntege
                    destructiveButtonTitle:(NSString *)destructiveButtonTitle
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
+```
 
 ### Action Sheets
 
+```objc
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
                                       withTitle:(NSString *)title
                                         message:(NSString *)message
