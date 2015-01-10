@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "RMPopoverPresentationController.h"
+
 @class RMUniversalAlert;
 
 typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
@@ -28,7 +30,7 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSIntege
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-             popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
+             popoverPresentationControllerBlock:(RMPopoverPresentationController *(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
 @property (readonly, nonatomic) BOOL visible;

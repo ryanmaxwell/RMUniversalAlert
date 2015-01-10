@@ -72,9 +72,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:@"Cancel"
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:nil
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -103,9 +104,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:nil
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:nil
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -134,9 +136,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:nil
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
-                                                     popover.sourceView = self.view;
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){                                                     popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -165,9 +167,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:nil
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other 1", @"Other 2"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -196,9 +199,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:@"Cancel"
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:nil
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -227,9 +231,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:@"Cancel"
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -258,9 +263,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:@"Cancel"
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other 1", @"Other 2"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -289,9 +295,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:nil
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -320,9 +327,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:nil
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other 1", @"Other 2"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -351,9 +359,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:@"Cancel"
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             
@@ -382,9 +391,10 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:@"Cancel"
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other"]
-                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                 popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
+                                                     return popover;
                                                  }
                                                                            tapBlock:self.tapBlock];
             

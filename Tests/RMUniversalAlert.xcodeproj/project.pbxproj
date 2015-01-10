@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16934E8D69700F79028CB83D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F25F13F1C0362E837894225 /* libPods.a */; };
 		9408ECD71A1C6EED00A5A792 /* RMUniversalAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */; };
+		94318CA91A60C88F0030FA5C /* RMPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94318CA81A60C88F0030FA5C /* RMPopoverPresentationController.m */; };
 		944A77DC1A1C6D14002BBBED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A77DB1A1C6D14002BBBED /* main.m */; };
 		944A77DF1A1C6D14002BBBED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A77DE1A1C6D14002BBBED /* AppDelegate.m */; };
 		944A77E21A1C6D14002BBBED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A77E11A1C6D14002BBBED /* ViewController.m */; };
@@ -33,6 +34,8 @@
 		4A55E5ABB1C21D6685D020A0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9408ECD51A1C6EED00A5A792 /* RMUniversalAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMUniversalAlert.h; path = ../../RMUniversalAlert.h; sourceTree = "<group>"; };
 		9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMUniversalAlert.m; path = ../../RMUniversalAlert.m; sourceTree = "<group>"; };
+		94318CA71A60C88F0030FA5C /* RMPopoverPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMPopoverPresentationController.h; path = ../../RMPopoverPresentationController.h; sourceTree = "<group>"; };
+		94318CA81A60C88F0030FA5C /* RMPopoverPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMPopoverPresentationController.m; path = ../../RMPopoverPresentationController.m; sourceTree = "<group>"; };
 		944A77D61A1C6D14002BBBED /* RMUniversalAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMUniversalAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944A77DA1A1C6D14002BBBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944A77DB1A1C6D14002BBBED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 			children = (
 				9408ECD51A1C6EED00A5A792 /* RMUniversalAlert.h */,
 				9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */,
+				94318CA71A60C88F0030FA5C /* RMPopoverPresentationController.h */,
+				94318CA81A60C88F0030FA5C /* RMPopoverPresentationController.m */,
 				944A77DD1A1C6D14002BBBED /* AppDelegate.h */,
 				944A77DE1A1C6D14002BBBED /* AppDelegate.m */,
 				944A77E01A1C6D14002BBBED /* ViewController.h */,
@@ -287,6 +292,7 @@
 				9408ECD71A1C6EED00A5A792 /* RMUniversalAlert.m in Sources */,
 				944A77DF1A1C6D14002BBBED /* AppDelegate.m in Sources */,
 				944A77DC1A1C6D14002BBBED /* main.m in Sources */,
+				94318CA91A60C88F0030FA5C /* RMPopoverPresentationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

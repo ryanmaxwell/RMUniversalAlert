@@ -100,7 +100,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-             popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
+             popoverPresentationControllerBlock:(RMPopoverPresentationController *(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
@@ -110,36 +110,78 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     alert.hasOtherButtons = otherButtonTitles.count > 0;
     
     if ([UIAlertController class]) {
+        
         alert.alertController = [UIAlertController showActionSheetInViewController:viewController
                                                                          withTitle:title
                                                                            message:message
                                                                  cancelButtonTitle:cancelButtonTitle
                                                             destructiveButtonTitle:destructiveButtonTitle
                                                                  otherButtonTitles:otherButtonTitles
-                                 popoverPresentationControllerBlock:popoverPresentationControllerBlock
+                                                popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                                    if (popoverPresentationControllerBlock) {
+                                                        RMPopoverPresentationController *configuredPopover = popoverPresentationControllerBlock([RMPopoverPresentationController new]);
+                                                        
+                                                        popover.sourceView = configuredPopover.sourceView;
+                                                        popover.sourceRect = configuredPopover.sourceRect;
+                                                        popover.barButtonItem = configuredPopover.barButtonItem;
+                                                    }
+                                                }
                                                                           tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
                                                                               if (tapBlock) {
                                                                                   tapBlock(alert, buttonIndex);
                                                                               }
                                                                           }];
     } else {
-        alert.actionSheet =  [UIActionSheet showInView:viewController.view
-                                             withTitle:title
-                                     cancelButtonTitle:cancelButtonTitle
-                                destructiveButtonTitle:destructiveButtonTitle
-                                     otherButtonTitles:otherButtonTitles
-                                              tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex){
-                                                  if (tapBlock) {
-                                                      if (buttonIndex == actionSheet.cancelButtonIndex) {
-                                                          tapBlock(alert, RMUniversalAlertCancelButtonIndex);
-                                                      } else if (buttonIndex == actionSheet.destructiveButtonIndex) {
-                                                          tapBlock(alert, RMUniversalAlertDestructiveButtonIndex);
-                                                      } else if (otherButtonTitles.count) {
-                                                          NSInteger otherOffset = buttonIndex - actionSheet.firstOtherButtonIndex;
-                                                          tapBlock(alert, RMUniversalAlertFirstOtherButtonIndex + otherOffset);
-                                                      }
-                                                  }
-                                              }];
+        
+        void(^actionSheetTapBlock)(UIActionSheet *actionSheet, NSInteger buttonIndex) = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+            if (tapBlock) {
+                if (buttonIndex == actionSheet.cancelButtonIndex) {
+                    tapBlock(alert, RMUniversalAlertCancelButtonIndex);
+                } else if (buttonIndex == actionSheet.destructiveButtonIndex) {
+                    tapBlock(alert, RMUniversalAlertDestructiveButtonIndex);
+                } else if (otherButtonTitles.count) {
+                    NSInteger otherOffset = buttonIndex - actionSheet.firstOtherButtonIndex;
+                    tapBlock(alert, RMUniversalAlertFirstOtherButtonIndex + otherOffset);
+                }
+            }
+        };
+        
+        void (^standardActionSheetBlock)(void) = ^{
+            alert.actionSheet =  [UIActionSheet showInView:viewController.view
+                                                 withTitle:title
+                                         cancelButtonTitle:cancelButtonTitle
+                                    destructiveButtonTitle:destructiveButtonTitle
+                                         otherButtonTitles:otherButtonTitles
+                                                  tapBlock:actionSheetTapBlock];
+        };
+        
+        if (popoverPresentationControllerBlock) {
+            
+            RMPopoverPresentationController *configuredPopover = popoverPresentationControllerBlock([RMPopoverPresentationController new]);
+            
+            if (configuredPopover.barButtonItem) {
+                alert.actionSheet = [UIActionSheet showFromBarButtonItem:configuredPopover.barButtonItem
+                                                                animated:YES
+                                                               withTitle:title
+                                                       cancelButtonTitle:cancelButtonTitle
+                                                  destructiveButtonTitle:destructiveButtonTitle
+                                                       otherButtonTitles:otherButtonTitles
+                                                                tapBlock:actionSheetTapBlock];
+            } else if (configuredPopover.sourceView) {
+                alert.actionSheet = [UIActionSheet showFromRect:configuredPopover.sourceRect
+                                                         inView:configuredPopover.sourceView
+                                                       animated:YES
+                                                      withTitle:title
+                                              cancelButtonTitle:cancelButtonTitle
+                                         destructiveButtonTitle:destructiveButtonTitle
+                                              otherButtonTitles:otherButtonTitles
+                                                       tapBlock:actionSheetTapBlock];
+            } else {
+                standardActionSheetBlock();
+            }
+        } else {
+            standardActionSheetBlock();
+        }
     }
     
     return alert;
