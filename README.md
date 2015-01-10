@@ -10,6 +10,8 @@ RMUniversalAlert is a wrapper class that builds upon [UIAlertView+Blocks](https:
 ```objc
 typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
 
+### Alert Views
+
 + (instancetype)showAlertInViewController:(UIViewController *)viewController
                                 withTitle:(NSString *)title
                                   message:(NSString *)message
@@ -18,16 +20,19 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSIntege
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 
+### Action Sheets
+
 + (instancetype)showActionSheetInViewController:(UIViewController *)viewController
                                       withTitle:(NSString *)title
                                         message:(NSString *)message
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
+             popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 ```
 
-## Usage 
+## Usage - Alert Views
 
 The below code will show an alert on all iOS versions, and allow you to perform your logic in a single inline code path. 
 On iOS 8 and above, it will use UIAlertController - giving you red text on the destructive button. On iOS 7 and earlier, it will use a standard UIAlertView.
@@ -42,7 +47,6 @@ On iOS 8 and above, it will use UIAlertController - giving you red text on the d
                      destructiveButtonTitle:@"Delete"
                           otherButtonTitles:@[@"First Other", @"Second Other"]
                                    tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
-                                       
                                        if (buttonIndex == alert.cancelButtonIndex) {
                                            NSLog(@"Cancel Tapped");
                                        } else if (buttonIndex == alert.destructiveButtonIndex) {
@@ -63,7 +67,61 @@ RMUniversalAlert.showAlertInViewController(self,
     destructiveButtonTitle: "Delete",
     otherButtonTitles: ["First Other", "Second Other"],
     tapBlock: {(alert, buttonIndex) in
-    
+        if (buttonIndex == alert.cancelButtonIndex) {
+            println("Cancel Tapped")
+        } else if (buttonIndex == alert.destructiveButtonIndex) {
+            println("Delete Tapped")
+        } else if (buttonIndex >= alert.firstOtherButtonIndex) {
+            println("Other Button Index \(buttonIndex - alert.firstOtherButtonIndex)")
+        }
+    })
+```
+
+## Usage - Action Sheet
+
+The below code will show an action sheet on all iOS versions, and allow you to perform your logic in a single inline code path. 
+On iOS 8 and above, it will use UIAlertController - giving you red text on the destructive button. On iOS 7 and earlier, it will use a standard UIActionSheet.
+
+The `popoverPresentationControllerBlock` allows you to configure the popover presentation controller if the action sheet will be on an iPad. 
+
+### Objective-C
+
+```objc
+[RMUniversalAlert showActionSheetInViewController:self
+                                        withTitle:@"Test Action Sheet"
+                                          message:@"Test Message"
+                                cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:@"Delete"
+                                otherButtonTitles:@[@"First Other", @"Second Other"]
+               popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+                                             popover.sourceView = self.view;
+                                             popover.sourceRect = sender.frame;
+                                         }
+                                         tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
+                                             if (buttonIndex == alert.cancelButtonIndex) {
+                                                 NSLog(@"Cancel Tapped");
+                                             } else if (buttonIndex == alert.destructiveButtonIndex) {
+                                                 NSLog(@"Delete Tapped");
+                                             } else if (buttonIndex >= alert.firstOtherButtonIndex) {
+                                                 NSLog(@"Other Button Index %ld", (long)buttonIndex - alert.firstOtherButtonIndex);
+                                             }
+                                         };
+```
+
+### Swift
+
+```swift
+RMUniversalAlert.showActionSheetInViewController(self,
+    withTitle: "Test Action Sheet",
+    message: "Test Message",
+    cancelButtonTitle: "Cancel",
+    destructiveButtonTitle: "Delete",
+    otherButtonTitles: ["First Other", "Second Other"],
+    popoverPresentationControllerBlock: {(popover) in
+        popover.sourceView = self.view
+        popover.sourceRect = sender.frame
+    }
+    tapBlock: {(alert, buttonIndex) in
         if (buttonIndex == alert.cancelButtonIndex) {
             println("Cancel Tapped")
         } else if (buttonIndex == alert.destructiveButtonIndex) {
