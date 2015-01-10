@@ -100,7 +100,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-             popoverPresentationControllerBlock:(RMPopoverPresentationController *(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
+             popoverPresentationControllerBlock:(void(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
@@ -119,7 +119,9 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                                                                  otherButtonTitles:otherButtonTitles
                                                 popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
                                                     if (popoverPresentationControllerBlock) {
-                                                        RMPopoverPresentationController *configuredPopover = popoverPresentationControllerBlock([RMPopoverPresentationController new]);
+                                                        RMPopoverPresentationController *configuredPopover = [RMPopoverPresentationController new];
+                                                        
+                                                        popoverPresentationControllerBlock(configuredPopover);
                                                         
                                                         popover.sourceView = configuredPopover.sourceView;
                                                         popover.sourceRect = configuredPopover.sourceRect;
@@ -157,7 +159,9 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
         
         if (popoverPresentationControllerBlock) {
             
-            RMPopoverPresentationController *configuredPopover = popoverPresentationControllerBlock([RMPopoverPresentationController new]);
+            RMPopoverPresentationController *configuredPopover = [RMPopoverPresentationController new];
+            
+            popoverPresentationControllerBlock(configuredPopover);
             
             if (configuredPopover.barButtonItem) {
                 alert.actionSheet = [UIActionSheet showFromBarButtonItem:configuredPopover.barButtonItem

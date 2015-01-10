@@ -32,7 +32,7 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSIntege
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-             popoverPresentationControllerBlock:(RMPopoverPresentationController *(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
+             popoverPresentationControllerBlock:(void(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 ```
 
@@ -97,10 +97,9 @@ The `popoverPresentationControllerBlock` allows you to configure the popover's s
                                 cancelButtonTitle:@"Cancel"
                            destructiveButtonTitle:@"Delete"
                                 otherButtonTitles:@[@"First Other", @"Second Other"]
-               popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
+               popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
                                              popover.sourceView = self.view;
                                              popover.sourceRect = sender.frame;
-                                             return popover;
                                          }
                                          tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
                                              if (buttonIndex == alert.cancelButtonIndex) {
@@ -122,10 +121,9 @@ RMUniversalAlert.showActionSheetInViewController(self,
     cancelButtonTitle: "Cancel",
     destructiveButtonTitle: "Delete",
     otherButtonTitles: ["First Other", "Second Other"],
-    popoverPresentationControllerBlock: {(popover) -> RMPopoverPresentationController in
+    popoverPresentationControllerBlock: {(popover) in
         popover.sourceView = self.view
         popover.sourceRect = sender.frame
-        return popover
     }
     tapBlock: {(alert, buttonIndex) in
         if (buttonIndex == alert.cancelButtonIndex) {
