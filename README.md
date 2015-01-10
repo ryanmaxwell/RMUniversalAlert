@@ -86,7 +86,7 @@ RMUniversalAlert.showAlertInViewController(self,
 The below code will show an action sheet on all iOS versions, and allow you to perform your logic in a single inline code path. 
 On iOS 8 and above, it will use UIAlertController - giving you red text on the destructive button. On iOS 7 and earlier, it will use a standard UIActionSheet.
 
-The `popoverPresentationControllerBlock` allows you to configure the popover presentation controller if the action sheet will be on an iPad. 
+The `popoverPresentationControllerBlock` allows you to configure the popover's source view/rect/bar button item if the action sheet will be on an iPad. 
 
 ### Objective-C
 
@@ -97,9 +97,10 @@ The `popoverPresentationControllerBlock` allows you to configure the popover pre
                                 cancelButtonTitle:@"Cancel"
                            destructiveButtonTitle:@"Delete"
                                 otherButtonTitles:@[@"First Other", @"Second Other"]
-               popoverPresentationControllerBlock:^(UIPopoverPresentationController *popover){
+               popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
                                              popover.sourceView = self.view;
                                              popover.sourceRect = sender.frame;
+                                             return popover;
                                          }
                                          tapBlock:^(RMUniversalAlert *alert, NSInteger buttonIndex){
                                              if (buttonIndex == alert.cancelButtonIndex) {
@@ -124,6 +125,7 @@ RMUniversalAlert.showActionSheetInViewController(self,
     popoverPresentationControllerBlock: {(popover) in
         popover.sourceView = self.view
         popover.sourceRect = sender.frame
+        return popover
     }
     tapBlock: {(alert, buttonIndex) in
         if (buttonIndex == alert.cancelButtonIndex) {
