@@ -32,7 +32,7 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSIntege
                               cancelButtonTitle:(NSString *)cancelButtonTitle
                          destructiveButtonTitle:(NSString *)destructiveButtonTitle
                               otherButtonTitles:(NSArray *)otherButtonTitles
-             popoverPresentationControllerBlock:(void(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
+             popoverPresentationControllerBlock:(RMPopoverPresentationController *(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
 ```
 
@@ -97,7 +97,7 @@ The `popoverPresentationControllerBlock` allows you to configure the popover's s
                                 cancelButtonTitle:@"Cancel"
                            destructiveButtonTitle:@"Delete"
                                 otherButtonTitles:@[@"First Other", @"Second Other"]
-               popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+               popoverPresentationControllerBlock:^RMPopoverPresentationController *(RMPopoverPresentationController *popover){
                                              popover.sourceView = self.view;
                                              popover.sourceRect = sender.frame;
                                              return popover;
@@ -122,7 +122,7 @@ RMUniversalAlert.showActionSheetInViewController(self,
     cancelButtonTitle: "Cancel",
     destructiveButtonTitle: "Delete",
     otherButtonTitles: ["First Other", "Second Other"],
-    popoverPresentationControllerBlock: {(popover) in
+    popoverPresentationControllerBlock: {(popover) -> RMPopoverPresentationController in
         popover.sourceView = self.view
         popover.sourceRect = sender.frame
         return popover
