@@ -81,6 +81,10 @@ RMUniversalAlert.showAlertInViewController(self,
     })
 ```
 
+## Requirements
+
+iOS 6 and later. Since version 0.7 the headers use the new Objective-C [nullability annotations](https://developer.apple.com/swift/blog/?id=25) for nicer interoperability with Swift, so you will need Xcode 6.3 or later to compile it.
+
 ## Usage - Action Sheet
 
 The below code will show an action sheet on all iOS versions, and allow you to perform your logic in a single inline code path. 
