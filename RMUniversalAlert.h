@@ -12,26 +12,26 @@
 
 @class RMUniversalAlert;
 
-typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert *alert, NSInteger buttonIndex);
+typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert * __nonnull alert, NSInteger buttonIndex);
 
 @interface RMUniversalAlert : NSObject
 
-+ (instancetype)showAlertInViewController:(UIViewController *)viewController
-                                withTitle:(NSString *)title
-                                  message:(NSString *)message
-                        cancelButtonTitle:(NSString *)cancelButtonTitle
-                   destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                        otherButtonTitles:(NSArray *)otherButtonTitles
-                                 tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
++ (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
+                                        withTitle:(nullable NSString *)title
+                                          message:(nullable NSString *)message
+                                cancelButtonTitle:(nullable NSString *)cancelButtonTitle
+                           destructiveButtonTitle:(nullable NSString *)destructiveButtonTitle
+                                otherButtonTitles:(nullable NSArray *)otherButtonTitles
+                                         tapBlock:(nullable RMUniversalAlertCompletionBlock)tapBlock;
 
-+ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
-                                      withTitle:(NSString *)title
-                                        message:(NSString *)message
-                              cancelButtonTitle:(NSString *)cancelButtonTitle
-                         destructiveButtonTitle:(NSString *)destructiveButtonTitle
-                              otherButtonTitles:(NSArray *)otherButtonTitles
-             popoverPresentationControllerBlock:(void(^)(RMPopoverPresentationController *popover))popoverPresentationControllerBlock
-                                       tapBlock:(RMUniversalAlertCompletionBlock)tapBlock;
++ (nonnull instancetype)showActionSheetInViewController:(nonnull UIViewController *)viewController
+                                              withTitle:(nullable NSString *)title
+                                                message:(nullable NSString *)message
+                                      cancelButtonTitle:(nullable NSString *)cancelButtonTitle
+                                 destructiveButtonTitle:(nullable NSString *)destructiveButtonTitle
+                                      otherButtonTitles:(nullable NSArray *)otherButtonTitles
+                     popoverPresentationControllerBlock:(void(^ __nullable)(RMPopoverPresentationController * __nonnull popover))popoverPresentationControllerBlock
+                                               tapBlock:(nullable RMUniversalAlertCompletionBlock)tapBlock;
 
 @property (readonly, nonatomic) BOOL visible;
 @property (readonly, nonatomic) NSInteger cancelButtonIndex;
