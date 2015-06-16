@@ -58,7 +58,7 @@ On iOS 8 and above, it will use UIAlertController - giving you red text on the d
                                        } else if (buttonIndex >= alert.firstOtherButtonIndex) {
                                            NSLog(@"Other Button Index %ld", (long)buttonIndex - alert.firstOtherButtonIndex);
                                        }
-                                   };
+                                   }];
 ```
 
 ### Swift
@@ -113,7 +113,7 @@ The `popoverPresentationControllerBlock` allows you to configure the popover's s
                                              } else if (buttonIndex >= alert.firstOtherButtonIndex) {
                                                  NSLog(@"Other Button Index %ld", (long)buttonIndex - alert.firstOtherButtonIndex);
                                              }
-                                         };
+                                         }];
 ```
 
 ### Swift
