@@ -392,6 +392,45 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
     }
 }
 
+- (IBAction)singleCancelWithDismiss:(UIButton*)sender {
+    switch (self.mode) {
+        case PresentationModeAlert: {
+            self.universalAlert = [RMUniversalAlert showAlertInViewController:self
+                                                                    withTitle:@"Title"
+                                                                      message:@"Message"
+                                                            cancelButtonTitle:@"Cancel"
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:nil
+                                                                     tapBlock:self.tapBlock];
+            
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self.universalAlert dismissAlertAnimated:NO];
+            });
+            
+            break;
+        }
+        case PresentationModeActionSheet: {
+            self.universalAlert = [RMUniversalAlert showActionSheetInViewController:self
+                                                                          withTitle:@"Title"
+                                                                            message:@"Message"
+                                                                  cancelButtonTitle:@"Cancel"
+                                                             destructiveButtonTitle:nil
+                                                                  otherButtonTitles:nil
+                                                 popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     popover.sourceView = self.view;
+                                                     popover.sourceRect = sender.frame;
+                                                 }
+                                                                           tapBlock:self.tapBlock];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self.universalAlert dismissAlertAnimated:YES];
+            });
+            break;
+        }
+    }
+}
+
+
 #pragma mark -
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
