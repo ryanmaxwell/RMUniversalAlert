@@ -128,7 +128,7 @@ RMUniversalAlert.showActionSheetInViewController(self,
     popoverPresentationControllerBlock: {(popover) in
         popover.sourceView = self.view
         popover.sourceRect = sender.frame
-    }
+    },
     tapBlock: {(alert, buttonIndex) in
         if (buttonIndex == alert.cancelButtonIndex) {
             println("Cancel Tapped")
