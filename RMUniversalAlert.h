@@ -16,6 +16,11 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert * __nonnull aler
 
 @interface RMUniversalAlert : NSObject
 
+@property (nonatomic) UIAlertController *alertController;
+@property (nonatomic) UIAlertView *alertView;
+@property (nonatomic) UIActionSheet *actionSheet;
+
+
 + (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
                                         withTitle:(nullable NSString *)title
                                           message:(nullable NSString *)message
