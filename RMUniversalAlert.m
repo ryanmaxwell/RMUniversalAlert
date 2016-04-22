@@ -20,6 +20,10 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 
 @interface RMUniversalAlert ()
 
+@property (nonatomic) UIAlertController *alertController;
+@property (nonatomic) UIAlertView *alertView;
+@property (nonatomic) UIActionSheet *actionSheet;
+
 @property (nonatomic, assign) BOOL hasCancelButton;
 @property (nonatomic, assign) BOOL hasDestructiveButton;
 @property (nonatomic, assign) BOOL hasOtherButtons;
@@ -187,6 +191,51 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     return alert;
 }
 
+
++ (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
+                                      withMessage:(nullable NSString *)message withBlock:(ShowTipDismissBlock) misBlock {
+    RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
+    
+    if ([UIAlertController class]) {
+        UIAlertController *alertController = [UIAlertController showAlertInViewController:viewController
+                                                                   withTitle:nil message:message
+                                                           cancelButtonTitle:nil
+                                                      destructiveButtonTitle:nil
+                                                           otherButtonTitles:nil
+                                                                    tapBlock:nil];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                if (misBlock) {
+                    misBlock();
+                }
+            }];
+        });
+        
+    } else {
+        UIAlertView *alertView =  [UIAlertView showWithTitle:nil
+                                              message:message
+                                    cancelButtonTitle:nil
+                                    otherButtonTitles:nil
+                                             tapBlock:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alertView dismissWithClickedButtonIndex:[alertView cancelButtonIndex] animated:YES];
+            if (misBlock) {
+                misBlock();
+            }
+        });
+    }
+    
+    return alert;
+
+}
+
+
+
+
+
+
+
 #pragma mark -
 
 - (BOOL)visible
@@ -228,5 +277,6 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     
     return RMUniversalAlertDestructiveButtonIndex;
 }
+
 
 @end
