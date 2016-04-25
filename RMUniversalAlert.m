@@ -192,12 +192,11 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 }
 
 
-+ (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
++ (void)showAlertInViewController:(nonnull UIViewController *)viewController
                                       withMessage:(nullable NSString *)message withBlock:(ShowTipDismissBlock) misBlock {
-    RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     
     if ([UIAlertController class]) {
-        UIAlertController *alertController = [UIAlertController showAlertInViewController:viewController
+        __block UIAlertController *alertController = [UIAlertController showAlertInViewController:viewController
                                                                    withTitle:nil message:message
                                                            cancelButtonTitle:nil
                                                       destructiveButtonTitle:nil
@@ -208,12 +207,13 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
             [alertController dismissViewControllerAnimated:YES completion:^{
                 if (misBlock) {
                     misBlock();
+                    alertController = nil;
                 }
             }];
         });
         
     } else {
-        UIAlertView *alertView =  [UIAlertView showWithTitle:nil
+        __block UIAlertView *alertView =  [UIAlertView showWithTitle:nil
                                               message:message
                                     cancelButtonTitle:nil
                                     otherButtonTitles:nil
@@ -222,12 +222,10 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
             [alertView dismissWithClickedButtonIndex:[alertView cancelButtonIndex] animated:YES];
             if (misBlock) {
                 misBlock();
+                alertView = nil;
             }
         });
     }
-    
-    return alert;
-
 }
 
 

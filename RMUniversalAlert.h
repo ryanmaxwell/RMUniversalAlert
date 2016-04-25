@@ -38,7 +38,7 @@ typedef void(^ShowTipDismissBlock)();
                      popoverPresentationControllerBlock:(void(^ __nullable)(RMPopoverPresentationController * __nonnull popover))popoverPresentationControllerBlock
                                                tapBlock:(nullable RMUniversalAlertCompletionBlock)tapBlock;
 
-+ (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
++ (void)showAlertInViewController:(nonnull UIViewController *)viewController
                                       withMessage:(nullable NSString *)message withBlock:(nullable ShowTipDismissBlock) misBlock;
 
 @property (readonly, nonatomic) BOOL visible;
