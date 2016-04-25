@@ -192,7 +192,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 }
 
 
-+ (void)showAlertInViewController:(nonnull UIViewController *)viewController
++ (void)showAlertInViewControllerN:(nonnull UIViewController *)viewController
                                       withMessage:(nullable NSString *)message withBlock:(ShowTipDismissBlock) misBlock {
     
     if ([UIAlertController class]) {
