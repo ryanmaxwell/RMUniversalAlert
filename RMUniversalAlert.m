@@ -32,6 +32,27 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 
 @implementation RMUniversalAlert
 
+- (instancetype)init {
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    }
+    return self;
+}
+
+- (void)didEnterBackground {
+    if ([UIAlertController class]) {
+        [self.alertController dismissViewControllerAnimated:NO completion:nil];
+    }else {
+        [self.alertView setHidden:YES];
+        [_alertView removeFromSuperview];
+        _alertView = nil;
+    }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 + (instancetype)showAlertInViewController:(UIViewController *)viewController
                                 withTitle:(NSString *)title
                                   message:(NSString *)message
