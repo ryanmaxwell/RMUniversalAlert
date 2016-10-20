@@ -197,6 +197,17 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 
 #pragma mark -
 
+-(void)dismissAlertAnimated:(BOOL)animated {
+    
+    if (self.alertController) {
+        [self.alertController dismissViewControllerAnimated:animated completion:nil];
+    } else if (self.alertView) {
+        [self.alertView dismissWithClickedButtonIndex:0 animated:animated];
+    } else if (self.actionSheet) {
+        [self.actionSheet dismissWithClickedButtonIndex:0 animated:animated];
+    }
+}
+
 - (BOOL)visible
 {
     if (self.alertController) {

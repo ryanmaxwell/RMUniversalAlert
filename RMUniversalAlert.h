@@ -33,6 +33,8 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert * __nonnull aler
                      popoverPresentationControllerBlock:(void(^ __nullable)(RMPopoverPresentationController * __nonnull popover))popoverPresentationControllerBlock
                                                tapBlock:(nullable RMUniversalAlertCompletionBlock)tapBlock;
 
+-(void)dismissAlertAnimated:(BOOL)animated;
+
 @property (readonly, nonatomic) BOOL visible;
 @property (readonly, nonatomic) NSInteger cancelButtonIndex;
 @property (readonly, nonatomic) NSInteger firstOtherButtonIndex;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -126,6 +126,15 @@
                                     <action selector="destructiveCancelAndOther:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZm-xl-Gpj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH7-Km-Ot1">
+                                <rect key="frame" x="207" y="507" width="187" height="30"/>
+                                <state key="normal" title="Single Cancel with Dismiss">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="singleCancelWithDismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdC-Jt-mjy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -151,6 +160,7 @@
                             <constraint firstItem="Ks2-a4-b0B" firstAttribute="top" secondItem="utY-CB-aPm" secondAttribute="bottom" constant="10" id="fsc-nB-5XD"/>
                             <constraint firstAttribute="centerX" secondItem="tif-3t-8Zr" secondAttribute="centerX" id="gaT-g5-gtA"/>
                             <constraint firstAttribute="centerX" secondItem="mr9-3X-zk3" secondAttribute="centerX" id="mBk-bw-A8X"/>
+                            <constraint firstAttribute="centerX" secondItem="SH7-Km-Ot1" secondAttribute="centerX" id="qJP-YO-dKA"/>
                             <constraint firstItem="mr9-3X-zk3" firstAttribute="top" secondItem="4eQ-7H-JUv" secondAttribute="bottom" constant="10" id="tSm-oG-P8a"/>
                             <constraint firstAttribute="centerX" secondItem="hfR-Qv-1pJ" secondAttribute="centerX" id="upW-IU-2qh"/>
                         </constraints>
