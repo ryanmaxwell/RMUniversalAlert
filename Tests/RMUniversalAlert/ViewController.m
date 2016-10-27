@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 @property (strong, nonatomic) RMUniversalAlertCompletionBlock tapBlock;
 
-@property (strong, nonatomic) RMUniversalAlert *universalAlert;
+@property (weak, nonatomic) RMUniversalAlert *universalAlert;
 
 @end
 
@@ -85,6 +85,7 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)singleDestructive:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -104,6 +105,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:nil
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -116,6 +120,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)singleOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -134,7 +140,11 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                                   cancelButtonTitle:nil
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other"]
-                                                 popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){                                                     popover.sourceView = self.view;
+                                                 popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
+                                                     popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
                                                                            tapBlock:self.tapBlock];
@@ -146,6 +156,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)multipleOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -165,6 +177,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other 1", @"Other 2"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -177,6 +192,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)cancelAndDestructive:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -196,6 +213,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:nil
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -208,6 +228,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)cancelAndOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -227,6 +249,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -239,6 +264,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)cancelAndMultipleOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -258,6 +285,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:@[@"Other 1", @"Other 2"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -270,6 +300,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)destructiveAndOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -289,6 +321,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -301,6 +336,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)destructiveAndMultipleOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -320,6 +357,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other 1", @"Other 2"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -332,6 +372,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)destructiveCancelAndOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -351,6 +393,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -363,6 +408,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 
 - (IBAction)destructiveCancelAndMultipleOther:(UIButton *)sender
 {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -382,6 +429,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:@"Delete"
                                                                   otherButtonTitles:@[@"Other"]
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
@@ -393,6 +443,8 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
 }
 
 - (IBAction)singleCancelWithDismiss:(UIButton*)sender {
+    __weak __typeof(self) weakSelf = self;
+    
     switch (self.mode) {
         case PresentationModeAlert: {
             self.universalAlert = [RMUniversalAlert showAlertInViewController:self
@@ -405,6 +457,9 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
             
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                __strong __typeof(weakSelf) self = weakSelf;
+                if (!self) return;
+                
                 [self.universalAlert dismissAlertAnimated:NO];
             });
             
@@ -418,11 +473,17 @@ typedef NS_ENUM(NSInteger, PresentationMode) {
                                                              destructiveButtonTitle:nil
                                                                   otherButtonTitles:nil
                                                  popoverPresentationControllerBlock:^(RMPopoverPresentationController *popover){
+                                                     __strong __typeof(weakSelf) self = weakSelf;
+                                                     if (!self) return;
+                                                     
                                                      popover.sourceView = self.view;
                                                      popover.sourceRect = sender.frame;
                                                  }
                                                                            tapBlock:self.tapBlock];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                __strong __typeof(weakSelf) self = weakSelf;
+                if (!self) return;
+                
                 [self.universalAlert dismissAlertAnimated:YES];
             });
             break;
