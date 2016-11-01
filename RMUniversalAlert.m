@@ -46,8 +46,6 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     alert.hasDestructiveButton = destructiveButtonTitle != nil;
     alert.hasOtherButtons = otherButtonTitles.count > 0;
     
-    __weak RMUniversalAlert *weakAlert = alert;
-    
     if ([UIAlertController class]) {
         alert.alertController = [UIAlertController showAlertInViewController:viewController
                                                                    withTitle:title message:message
@@ -56,7 +54,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                                                            otherButtonTitles:otherButtonTitles
                                                                     tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
                                                                         if (tapBlock) {
-                                                                            tapBlock(weakAlert, buttonIndex);
+                                                                            tapBlock(alert, buttonIndex);
                                                                         }
                                                                     }];
     } else {
@@ -77,17 +75,17 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                                              tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
                                                  if (tapBlock) {
                                                      if (buttonIndex == alertView.cancelButtonIndex) {
-                                                         tapBlock(weakAlert, RMUniversalAlertCancelButtonIndex);
+                                                         tapBlock(alert, RMUniversalAlertCancelButtonIndex);
                                                      } else if (destructiveButtonTitle) {
                                                          if (buttonIndex == alertView.firstOtherButtonIndex) {
-                                                             tapBlock(weakAlert, RMUniversalAlertDestructiveButtonIndex);
+                                                             tapBlock(alert, RMUniversalAlertDestructiveButtonIndex);
                                                          } else if (otherButtonTitles.count) {
                                                              NSInteger otherOffset = buttonIndex - alertView.firstOtherButtonIndex;
-                                                             tapBlock(weakAlert, RMUniversalAlertFirstOtherButtonIndex + otherOffset - 1);
+                                                             tapBlock(alert, RMUniversalAlertFirstOtherButtonIndex + otherOffset - 1);
                                                          }
                                                      } else if (otherButtonTitles.count) {
                                                          NSInteger otherOffset = buttonIndex - alertView.firstOtherButtonIndex;
-                                                         tapBlock(weakAlert, RMUniversalAlertFirstOtherButtonIndex + otherOffset);
+                                                         tapBlock(alert, RMUniversalAlertFirstOtherButtonIndex + otherOffset);
                                                      }
                                                  }
                                              }];
@@ -111,8 +109,6 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     alert.hasDestructiveButton = destructiveButtonTitle != nil;
     alert.hasOtherButtons = otherButtonTitles.count > 0;
     
-    __weak RMUniversalAlert *weakAlert = alert;
-    
     if ([UIAlertController class]) {
         
         alert.alertController = [UIAlertController showActionSheetInViewController:viewController
@@ -134,7 +130,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                                                 }
                                                                           tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
                                                                               if (tapBlock) {
-                                                                                  tapBlock(weakAlert, buttonIndex);
+                                                                                  tapBlock(alert, buttonIndex);
                                                                               }
                                                                           }];
     } else {
@@ -142,12 +138,12 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
         void(^actionSheetTapBlock)(UIActionSheet *actionSheet, NSInteger buttonIndex) = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
             if (tapBlock) {
                 if (buttonIndex == actionSheet.cancelButtonIndex) {
-                    tapBlock(weakAlert, RMUniversalAlertCancelButtonIndex);
+                    tapBlock(alert, RMUniversalAlertCancelButtonIndex);
                 } else if (buttonIndex == actionSheet.destructiveButtonIndex) {
-                    tapBlock(weakAlert, RMUniversalAlertDestructiveButtonIndex);
+                    tapBlock(alert, RMUniversalAlertDestructiveButtonIndex);
                 } else if (otherButtonTitles.count) {
                     NSInteger otherOffset = buttonIndex - actionSheet.firstOtherButtonIndex;
-                    tapBlock(weakAlert, RMUniversalAlertFirstOtherButtonIndex + otherOffset);
+                    tapBlock(alert, RMUniversalAlertFirstOtherButtonIndex + otherOffset);
                 }
             }
         };
