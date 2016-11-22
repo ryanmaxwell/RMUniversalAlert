@@ -126,6 +126,11 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                                                         popover.sourceView = configuredPopover.sourceView;
                                                         popover.sourceRect = configuredPopover.sourceRect;
                                                         popover.barButtonItem = configuredPopover.barButtonItem;
+                                                    } else {
+                                                        popover.sourceView = viewController.view;
+                                                        popover.sourceRect = viewController.view.bounds;
+                                                        
+                                                        popover.permittedArrowDirections = (UIPopoverArrowDirection) 0;
                                                     }
                                                 }
                                                                           tapBlock:^(UIAlertController *controller, UIAlertAction *action, NSInteger buttonIndex){
