@@ -40,13 +40,7 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 }
 
 - (void)didEnterBackground {
-    if ([UIAlertController class]) {
-        [self.alertController dismissViewControllerAnimated:NO completion:nil];
-    }else {
-        [self.alertView setHidden:YES];
-        [_alertView removeFromSuperview];
-        _alertView = nil;
-    }
+    [self dismissAlertAnimated:NO];
 }
 
 - (void)dealloc {
@@ -61,6 +55,9 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
+    if ([viewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
+        [viewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    }
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     
     alert.hasCancelButton = cancelButtonTitle != nil;
