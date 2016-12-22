@@ -40,6 +40,7 @@ typedef void(^ShowTipDismissBlock)();
 
 + (void)showAlertInViewControllerN:(nonnull UIViewController *)viewController
                                       withMessage:(nullable NSString *)message withBlock:(nullable ShowTipDismissBlock) misBlock;
+-(void)dismissAlertAnimated:(BOOL)animated;
 
 @property (readonly, nonatomic) BOOL visible;
 @property (readonly, nonatomic) NSInteger cancelButtonIndex;
