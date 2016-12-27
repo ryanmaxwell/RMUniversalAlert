@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		16934E8D69700F79028CB83D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F25F13F1C0362E837894225 /* libPods.a */; };
+		4003982F1CD9993700E6BF3C /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 400398221CD9993600E6BF3C /* NSObject+MemoryLeak.m */; };
+		400398301CD9993700E6BF3C /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 400398241CD9993600E6BF3C /* UINavigationController+MemoryLeak.m */; };
+		400398311CD9993700E6BF3C /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 400398261CD9993600E6BF3C /* UIPageViewController+MemoryLeak.m */; };
+		400398321CD9993700E6BF3C /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 400398281CD9993600E6BF3C /* UISplitViewController+MemoryLeak.m */; };
+		400398331CD9993700E6BF3C /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4003982A1CD9993600E6BF3C /* UITabBarController+MemoryLeak.m */; };
+		400398341CD9993700E6BF3C /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4003982C1CD9993600E6BF3C /* UIView+MemoryLeak.m */; };
+		400398351CD9993700E6BF3C /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4003982E1CD9993600E6BF3C /* UIViewController+MemoryLeak.m */; };
+		400398381CD9996400E6BF3C /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400398371CD9996400E6BF3C /* SSViewController.m */; };
 		9408ECD71A1C6EED00A5A792 /* RMUniversalAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */; };
 		94318CA91A60C88F0030FA5C /* RMPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94318CA81A60C88F0030FA5C /* RMPopoverPresentationController.m */; };
 		944A77DC1A1C6D14002BBBED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A77DB1A1C6D14002BBBED /* main.m */; };
@@ -31,6 +39,23 @@
 
 /* Begin PBXFileReference section */
 		1F25F13F1C0362E837894225 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		400398201CD9993600E6BF3C /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		400398211CD9993600E6BF3C /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		400398221CD9993600E6BF3C /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		400398231CD9993600E6BF3C /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		400398241CD9993600E6BF3C /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		400398251CD9993600E6BF3C /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		400398261CD9993600E6BF3C /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		400398271CD9993600E6BF3C /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		400398281CD9993600E6BF3C /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		400398291CD9993600E6BF3C /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		4003982A1CD9993600E6BF3C /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		4003982B1CD9993600E6BF3C /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		4003982C1CD9993600E6BF3C /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		4003982D1CD9993600E6BF3C /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		4003982E1CD9993600E6BF3C /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		400398361CD9996400E6BF3C /* SSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
+		400398371CD9996400E6BF3C /* SSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
 		4A55E5ABB1C21D6685D020A0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9408ECD51A1C6EED00A5A792 /* RMUniversalAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMUniversalAlert.h; path = ../../RMUniversalAlert.h; sourceTree = "<group>"; };
 		9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMUniversalAlert.m; path = ../../RMUniversalAlert.m; sourceTree = "<group>"; };
@@ -71,6 +96,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4003981F1CD9992500E6BF3C /* ll */ = {
+			isa = PBXGroup;
+			children = (
+				400398201CD9993600E6BF3C /* MLeaksFinder.h */,
+				400398211CD9993600E6BF3C /* NSObject+MemoryLeak.h */,
+				400398221CD9993600E6BF3C /* NSObject+MemoryLeak.m */,
+				400398231CD9993600E6BF3C /* UINavigationController+MemoryLeak.h */,
+				400398241CD9993600E6BF3C /* UINavigationController+MemoryLeak.m */,
+				400398251CD9993600E6BF3C /* UIPageViewController+MemoryLeak.h */,
+				400398261CD9993600E6BF3C /* UIPageViewController+MemoryLeak.m */,
+				400398271CD9993600E6BF3C /* UISplitViewController+MemoryLeak.h */,
+				400398281CD9993600E6BF3C /* UISplitViewController+MemoryLeak.m */,
+				400398291CD9993600E6BF3C /* UITabBarController+MemoryLeak.h */,
+				4003982A1CD9993600E6BF3C /* UITabBarController+MemoryLeak.m */,
+				4003982B1CD9993600E6BF3C /* UIView+MemoryLeak.h */,
+				4003982C1CD9993600E6BF3C /* UIView+MemoryLeak.m */,
+				4003982D1CD9993600E6BF3C /* UIViewController+MemoryLeak.h */,
+				4003982E1CD9993600E6BF3C /* UIViewController+MemoryLeak.m */,
+			);
+			name = ll;
+			sourceTree = "<group>";
+		};
 		944A77CD1A1C6D14002BBBED = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +141,7 @@
 		944A77D81A1C6D14002BBBED /* RMUniversalAlert */ = {
 			isa = PBXGroup;
 			children = (
+				4003981F1CD9992500E6BF3C /* ll */,
 				9408ECD51A1C6EED00A5A792 /* RMUniversalAlert.h */,
 				9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */,
 				94318CA71A60C88F0030FA5C /* RMPopoverPresentationController.h */,
@@ -106,6 +154,8 @@
 				944A77E61A1C6D14002BBBED /* Images.xcassets */,
 				944A77E81A1C6D14002BBBED /* LaunchScreen.xib */,
 				944A77D91A1C6D14002BBBED /* Supporting Files */,
+				400398361CD9996400E6BF3C /* SSViewController.h */,
+				400398371CD9996400E6BF3C /* SSViewController.m */,
 			);
 			path = RMUniversalAlert;
 			sourceTree = "<group>";
@@ -165,6 +215,7 @@
 				944A77D31A1C6D14002BBBED /* Frameworks */,
 				944A77D41A1C6D14002BBBED /* Resources */,
 				43721C4A8E55A66EDAE8BC77 /* Copy Pods Resources */,
+				3F70E5280D6D7D2BE53AC99D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +302,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F70E5280D6D7D2BE53AC99D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		43721C4A8E55A66EDAE8BC77 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,10 +355,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				944A77E21A1C6D14002BBBED /* ViewController.m in Sources */,
+				400398301CD9993700E6BF3C /* UINavigationController+MemoryLeak.m in Sources */,
+				400398351CD9993700E6BF3C /* UIViewController+MemoryLeak.m in Sources */,
+				4003982F1CD9993700E6BF3C /* NSObject+MemoryLeak.m in Sources */,
 				9408ECD71A1C6EED00A5A792 /* RMUniversalAlert.m in Sources */,
+				400398381CD9996400E6BF3C /* SSViewController.m in Sources */,
 				944A77DF1A1C6D14002BBBED /* AppDelegate.m in Sources */,
+				400398341CD9993700E6BF3C /* UIView+MemoryLeak.m in Sources */,
+				400398311CD9993700E6BF3C /* UIPageViewController+MemoryLeak.m in Sources */,
+				400398321CD9993700E6BF3C /* UISplitViewController+MemoryLeak.m in Sources */,
 				944A77DC1A1C6D14002BBBED /* main.m in Sources */,
 				94318CA91A60C88F0030FA5C /* RMPopoverPresentationController.m in Sources */,
+				400398331CD9993700E6BF3C /* UITabBarController+MemoryLeak.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

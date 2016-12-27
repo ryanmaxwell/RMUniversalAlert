@@ -14,7 +14,12 @@
 
 typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert * __nonnull alert, NSInteger buttonIndex);
 
+typedef void(^ShowTipDismissBlock)();
+
 @interface RMUniversalAlert : NSObject
+
+
+
 
 + (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
                                         withTitle:(nullable NSString *)title
@@ -33,6 +38,8 @@ typedef void(^RMUniversalAlertCompletionBlock)(RMUniversalAlert * __nonnull aler
                      popoverPresentationControllerBlock:(void(^ __nullable)(RMPopoverPresentationController * __nonnull popover))popoverPresentationControllerBlock
                                                tapBlock:(nullable RMUniversalAlertCompletionBlock)tapBlock;
 
++ (void)showAlertInViewControllerN:(nonnull UIViewController *)viewController
+                                      withMessage:(nullable NSString *)message withBlock:(nullable ShowTipDismissBlock) misBlock;
 -(void)dismissAlertAnimated:(BOOL)animated;
 
 @property (readonly, nonatomic) BOOL visible;

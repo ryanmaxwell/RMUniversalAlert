@@ -20,9 +20,9 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 
 @interface RMUniversalAlert ()
 
-@property (nonatomic) UIAlertController *alertController;
-@property (nonatomic) UIAlertView *alertView;
-@property (nonatomic) UIActionSheet *actionSheet;
+@property (nonatomic,weak) UIAlertController *alertController;
+@property (nonatomic,weak) UIAlertView *alertView;
+@property (nonatomic,weak) UIActionSheet *actionSheet;
 
 @property (nonatomic, assign) BOOL hasCancelButton;
 @property (nonatomic, assign) BOOL hasDestructiveButton;
@@ -32,6 +32,21 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
 
 @implementation RMUniversalAlert
 
+- (instancetype)init {
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    }
+    return self;
+}
+
+- (void)didEnterBackground {
+    [self dismissAlertAnimated:NO];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 + (instancetype)showAlertInViewController:(UIViewController *)viewController
                                 withTitle:(NSString *)title
                                   message:(NSString *)message
@@ -40,6 +55,9 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
+//    if ([viewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
+//        [viewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+//    }
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     
     alert.hasCancelButton = cancelButtonTitle != nil;
@@ -191,6 +209,49 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     return alert;
 }
 
+
++ (void)showAlertInViewControllerN:(nonnull UIViewController *)viewController
+                                      withMessage:(nullable NSString *)message withBlock:(ShowTipDismissBlock) misBlock {
+    
+    if ([UIAlertController class]) {
+        __block UIAlertController *alertController = [UIAlertController showAlertInViewController:viewController
+                                                                   withTitle:nil message:message
+                                                           cancelButtonTitle:nil
+                                                      destructiveButtonTitle:nil
+                                                           otherButtonTitles:nil
+                                                                    tapBlock:nil];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                if (misBlock) {
+                    misBlock();
+                    alertController = nil;
+                }
+            }];
+        });
+        
+    } else {
+        __block UIAlertView *alertView =  [UIAlertView showWithTitle:nil
+                                              message:message
+                                    cancelButtonTitle:nil
+                                    otherButtonTitles:nil
+                                             tapBlock:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alertView dismissWithClickedButtonIndex:[alertView cancelButtonIndex] animated:YES];
+            if (misBlock) {
+                misBlock();
+                alertView = nil;
+            }
+        });
+    }
+}
+
+
+
+
+
+
+
 #pragma mark -
 
 -(void)dismissAlertAnimated:(BOOL)animated {
@@ -243,5 +304,6 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
     
     return RMUniversalAlertDestructiveButtonIndex;
 }
+
 
 @end
