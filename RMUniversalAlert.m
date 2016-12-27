@@ -55,9 +55,9 @@ static NSInteger const RMUniversalAlertFirstOtherButtonIndex = 2;
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(RMUniversalAlertCompletionBlock)tapBlock
 {
-    if ([viewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
-        [viewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
-    }
+//    if ([viewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
+//        [viewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+//    }
     RMUniversalAlert *alert = [[RMUniversalAlert alloc] init];
     
     alert.hasCancelButton = cancelButtonTitle != nil;
