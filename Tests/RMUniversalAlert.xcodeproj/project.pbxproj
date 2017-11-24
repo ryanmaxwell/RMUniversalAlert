@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16934E8D69700F79028CB83D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F25F13F1C0362E837894225 /* libPods.a */; };
+		5BB451D105C4C98707F33499 /* libPods-RMUniversalAlert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEFCDFFFC72BCEE3DA7D55E /* libPods-RMUniversalAlert.a */; };
 		9408ECD71A1C6EED00A5A792 /* RMUniversalAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */; };
 		94318CA91A60C88F0030FA5C /* RMPopoverPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94318CA81A60C88F0030FA5C /* RMPopoverPresentationController.m */; };
 		944A77DC1A1C6D14002BBBED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 944A77DB1A1C6D14002BBBED /* main.m */; };
@@ -30,8 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F25F13F1C0362E837894225 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A55E5ABB1C21D6685D020A0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		37925234F872FD0E3C82764D /* Pods-RMUniversalAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMUniversalAlert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RMUniversalAlert/Pods-RMUniversalAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		9408ECD51A1C6EED00A5A792 /* RMUniversalAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMUniversalAlert.h; path = ../../RMUniversalAlert.h; sourceTree = "<group>"; };
 		9408ECD61A1C6EED00A5A792 /* RMUniversalAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMUniversalAlert.m; path = ../../RMUniversalAlert.m; sourceTree = "<group>"; };
 		94318CA71A60C88F0030FA5C /* RMPopoverPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMPopoverPresentationController.h; path = ../../RMPopoverPresentationController.h; sourceTree = "<group>"; };
@@ -49,7 +48,8 @@
 		944A77EF1A1C6D15002BBBED /* RMUniversalAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMUniversalAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		944A77F41A1C6D15002BBBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944A77F51A1C6D15002BBBED /* RMUniversalAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMUniversalAlertTests.m; sourceTree = "<group>"; };
-		AA62FB7A89B3DA8AABBA03F8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9C936F6123C059242ABDBF2E /* Pods-RMUniversalAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMUniversalAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-RMUniversalAlert/Pods-RMUniversalAlert.release.xcconfig"; sourceTree = "<group>"; };
+		ABEFCDFFFC72BCEE3DA7D55E /* libPods-RMUniversalAlert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RMUniversalAlert.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16934E8D69700F79028CB83D /* libPods.a in Frameworks */,
+				5BB451D105C4C98707F33499 /* libPods-RMUniversalAlert.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 		B0C5C6EC3C65141C19FAEB48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F25F13F1C0362E837894225 /* libPods.a */,
+				ABEFCDFFFC72BCEE3DA7D55E /* libPods-RMUniversalAlert.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,8 +147,8 @@
 		E5362A3E63EB6507CBAC0D1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AA62FB7A89B3DA8AABBA03F8 /* Pods.debug.xcconfig */,
-				4A55E5ABB1C21D6685D020A0 /* Pods.release.xcconfig */,
+				37925234F872FD0E3C82764D /* Pods-RMUniversalAlert.debug.xcconfig */,
+				9C936F6123C059242ABDBF2E /* Pods-RMUniversalAlert.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -160,11 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 944A77F91A1C6D15002BBBED /* Build configuration list for PBXNativeTarget "RMUniversalAlert" */;
 			buildPhases = (
-				F49C27DB5BD33F9B37A8FFBA /* Check Pods Manifest.lock */,
+				F49C27DB5BD33F9B37A8FFBA /* [CP] Check Pods Manifest.lock */,
 				944A77D21A1C6D14002BBBED /* Sources */,
 				944A77D31A1C6D14002BBBED /* Frameworks */,
 				944A77D41A1C6D14002BBBED /* Resources */,
-				43721C4A8E55A66EDAE8BC77 /* Copy Pods Resources */,
+				43721C4A8E55A66EDAE8BC77 /* [CP] Copy Pods Resources */,
+				A624B6BEFDC09765221C9199 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,29 +252,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		43721C4A8E55A66EDAE8BC77 /* Copy Pods Resources */ = {
+		43721C4A8E55A66EDAE8BC77 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RMUniversalAlert/Pods-RMUniversalAlert-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F49C27DB5BD33F9B37A8FFBA /* Check Pods Manifest.lock */ = {
+		A624B6BEFDC09765221C9199 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RMUniversalAlert/Pods-RMUniversalAlert-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F49C27DB5BD33F9B37A8FFBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +430,7 @@
 		};
 		944A77FA1A1C6D15002BBBED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA62FB7A89B3DA8AABBA03F8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 37925234F872FD0E3C82764D /* Pods-RMUniversalAlert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -426,7 +442,7 @@
 		};
 		944A77FB1A1C6D15002BBBED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A55E5ABB1C21D6685D020A0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9C936F6123C059242ABDBF2E /* Pods-RMUniversalAlert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
